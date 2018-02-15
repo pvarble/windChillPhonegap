@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+	A simple html page (with some simple layout css)
+	Made by Philip Varble on 1/18/2018.
+-->
+
+<html>
+   <head>
+      <link rel="stylesheet" href="pageStyling.css">
+      <title>N300 Index</title>
+   </head>
+   
+   <body>
+      <h1>
+         N300 Index (test)
+      </h1>
+      <div id="mainBody">
+         <form action="/index.html">
+            <h3>User Login (does nothing)</h3>
+            <div class="inputLayout">
+               Name:
+            </div>
+            <input type="text" id="username"><br>
+            <div class="inputLayout">
+               Password:
+            </div>
+            <input type="password" id="userPassword"><br>
+            <input type="submit" id="submitForm"><br>
+         </form><br>
+         <a href="test_page.html">Test Page (relative link)</a><br>
+         <a href="https://www.cs.iupui.edu/~pvarble/n300/test_page.html">Test page (absolute link)</a><br>
+         <br>Change width to less than 450 pixels to trigger media response.<br>
+         <br>Below is an image linking test.
+         <br>It is an image of earth processed with using edge detection techniques.
+         <br><img src="../Combined_Edges_3x3.png" alt="An outline of earth and its continents should be here, but something went wrong."><br>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Content</title>
+	<link rel="stylesheet" href="themes/testTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		var fahrenheit = 0;
+		var celcius = 0;
+		function fahrToCelc()
+		{
+			var inputTemp = document.getElementById(temperatureSlider);
+			var outputTemp = document.getElementById();
+			celcius = (fahrentheit - 32) * (5/9);
+		}
+	</script>
+</head>
+<body>
+	<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1>Content Page</h1>
+		</div>
+		<label for="temperatureSlider">Temperature:</label>
+		<input type="range" name="temperatureSlider" id="temperatureSlider" value="0" min="-100" max="500" data-theme="a">
+		<div id="celcius">
+		</div>
+		</div>
+	</div>
+</body>
+</html>
