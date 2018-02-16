@@ -1,29 +1,80 @@
+<!doctype HTML>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Index</title>
+	<title>Weather Stuff</title>
 	<link rel="stylesheet" href="themes/testTheme.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script type="text/javascript" src="cordova.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
 	<script>
-		app.initialize();
+		var fahrenheit = 0;
+		var celcius = 0;
+		var inputWind = 0;
+
+		function calculateTemperatures()
+		{
+			fahrToCelc();
+			calcWindChill();
+		}
+		
+		function fahrToCelc()
+		{
+			//Calculate temperature to celcius
+			fahrenheit = document.getElementById("temperatureSlider").value;
+			celcius = (fahrenheit - 32) * (5/9);
+			document.getElementById("outputTemp").innerHTML = celcius + " Celcius<br>";
+		}
+		
+		function calcWindChill()
+		{
+			//Calculate wind chill
+			inputWind = document.getElementById("windSlider").value;
+			var windMetric = inputWind * 1.60934;
+			var windChillMetric = 0;
+			var windChillImperial = 0;
+			//Wind chill only takes effect above certain wind speeds and below certain temperatures.
+			//Formulae comes from wikipedia "wind chill" article
+			if((windMetric > 4) && (celcius < 10))
+			{
+				windChillMetric = 13.12 + 0.6215 * celcius - 11.37 * Math.pow(windMetric, 0.16) + 0.3965 * Math.pow(windMetric, 0.16) * celcius;
+			}
+			else
+				windChillMetric = celcius;
+
+			if((inputWind > 2) && (fahrenheit < 50))
+			{
+				windChillImperial = 35.74 + 0.6215 * fahrenheit - 35.75 * Math.pow(inputWind, 0.16) + 0.4275 * Math.pow(inputWind, 0.16) * fahrenheit;
+			}
+			else
+				windChillImperial = fahrenheit;
+
+			document.getElementById("outputChill").innerHTML = "Wind Chill: " + windChillMetric + " Celcius OR " + windChillImperial + " Fahrenheit";
+		}
 	</script>
 </head>
 <body>
 	<div data-role="page" data-theme="a">
-		<div data-role="content" data-theme="a">
-			<div data-role="header" data-position="inline">
-				<h1>Index Page</h1>
-			</div>
-			<a href="weather.html" class="ui-link">Weather Page</a><br><br>
-			<a href="test.html" class="ui-link">Test page</a><br><br>
-			<a href="indexOld.html" class="ui-link">Old index page</a><br><br>
+		<div data-role="header" data-position="inline">
+			<h1>Weather Stuff</h1>
+		</div><br>
+		<label for="temperatureSlider">Enter Temperature (fahrenheit):</label>
+		<input type="range" name="temperatureSlider" id="temperatureSlider" value="0" min="-100" max="500" data-theme="a" class="slider"><br>
+		<label for="windSlider">Enter Temperature (MPH):</label>
+		<input type="range" name="windSlider" id="windSlider" value="0" min="0" max="50" data-theme="a" class="slider"><br>
+		<button id="calcButton" data-theme="a">Calculate!</button><br>
+		<div id="outputTemp">
 		</div>
+		<div id="outputChill">
+		</div>
+	<script>
+		document.addEventListener("deviceready", function()
+		{
+			document.getElementById("calcButton").addEventListener('click', calculateTemperatures);
+		}, false);
+	</script>
 	</div>
 </body>
 </html>
