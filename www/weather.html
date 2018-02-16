@@ -42,22 +42,19 @@
 			//Formulae comes from wikipedia "wind chill" article
 			if((windMetric > 4) && (celcius < 10))
 			{
-				windChillMetric = 13.12 + .6215 * celcius - 11.37 * Math.pow(windMetric, .16) + .3965
-				* Math.pow(windMetric, .16) * celcius;
+				windChillMetric = 13.12 + 0.6215 * celcius - 11.37 * Math.pow(windMetric, 0.16) + 0.3965 * Math.pow(windMetric, 0.16) * celcius;
 			}
 			else
 				windChillMetric = celcius;
 
 			if((inputWind > 2) && (fahrenheit < 50))
 			{
-				windChillImperial = 35.74 + .6215 * fahrenheit - 35.75 * Math.pow(inputWind, .16) + .4275
-				* Math.pow(inputWind, .16) * fahrenheit;
+				windChillImperial = 35.74 + 0.6215 * fahrenheit - 35.75 * Math.pow(inputWind, 0.16) + 0.4275 * Math.pow(inputWind, 0.16) * fahrenheit;
 			}
 			else
 				windChillImperial = fahrenheit;
 
-			document.getElementById("outputChill").innerHTML = "Wind Chill: " + windChillMetric + " Celcius OR " +
-				windChillImperial + " Fahrenheit";
+			document.getElementById("outputChill").innerHTML = "Wind Chill: " + windChillMetric + " Celcius OR " + windChillImperial + " Fahrenheit";
 		}
 	</script>
 </head>
