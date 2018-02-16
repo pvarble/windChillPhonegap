@@ -73,10 +73,10 @@
 		<div id="outputChill">
 		</div>
 	<script>
-		window.onload = function()
+		document.addEventListener("deviceready", function()
 		{
 			document.getElementById("calcButton").addEventListener('click', calculateTemperatures);
-		}
+		}, false);
 	</script>
 	</div>
 </body>
