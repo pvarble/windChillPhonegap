@@ -65,16 +65,17 @@
 		<label for="windSlider">Enter Temperature (MPH):</label>
 		<input type="range" name="windSlider" id="windSlider" value="0" min="0" max="50" data-theme="a" class="slider"><br>
 		<button id="calcButton" data-theme="a">Calculate!</button><br>
+		<a href="https://build.phonegap.com/apps/3011717/download/android">Download me! (Android)</a>
 		<div id="outputTemp">
 		</div>
 		<div id="outputChill">
 		</div>
-	<script>
-		document.addEventListener("deviceready", function()
-		{
-			document.getElementById("calcButton").addEventListener('click', calculateTemperatures);
-		}, false);
-	</script>
+		<script>
+			document.addEventListener("deviceready", function()
+			{
+				document.getElementById("calcButton").addEventListener('click', calculateTemperatures);
+			}, false);
+		</script>
 	</div>
 </body>
 </html>
