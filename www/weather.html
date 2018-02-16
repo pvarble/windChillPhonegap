@@ -16,7 +16,6 @@
 
 		function calculateTemperatures()
 		{
-			document.getElementById("outputDebug").innerHTML = "calculating temps";
 			fahrToCelc();
 			calcWindChill();
 		}
@@ -69,11 +68,13 @@
 		<label for="windSlider">Enter Temperature (MPH):</label>
 		<input type="range" name="windSlider" id="windSlider" value="0" min="0" max="50" data-theme="a" class="slider"><br>
 		<button id="calcButton" data-theme="a" onClick="calculateTemperatures()">Calculate!</button><br>
+		<script>
+			calculateTemperatures();
+		</script>
 		<div id="outputTemp">
 		</div>
 		<div id="outputChill">
 		</div>
-		<div id="outputDebug"></div>
 	</div>
 </body>
 </html>
