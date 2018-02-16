@@ -73,7 +73,10 @@
 		<div id="outputChill">
 		</div>
 	<script>
-		document.getElementById("calcButton").addEventListener('click', calculateTemperatures);
+		window.onload = function()
+		{
+			document.getElementById("calcButton").addEventListener('click', calculateTemperatures);
+		}
 	</script>
 	</div>
 </body>
